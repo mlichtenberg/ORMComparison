@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ContosoUniversity.NH" namespace="ContosoUniversity.NH.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Enrollment" table="Enrollment" lazy="true" >
+    <id name="Enrollmentid" column="EnrollmentID">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="Course">
+      <column name="CourseID" sql-type="int" not-null="true" />
+    </many-to-one>
+    <many-to-one name="Person">
+      <column name="StudentID" sql-type="int" not-null="true" />
+    </many-to-one>
+    <property name="Grade">
+      <column name="Grade" sql-type="int" not-null="false" />
+    </property>
+  </class>
+</hibernate-mapping>

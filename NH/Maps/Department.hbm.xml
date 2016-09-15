@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ContosoUniversity.NH" namespace="ContosoUniversity.NH.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Department" table="Department" lazy="true" >
+    <id name="Departmentid" column="DepartmentID">
+      <generator class="identity" />
+    </id>
+    <many-to-one name="Person">
+      <column name="InstructorID" sql-type="int" not-null="false" />
+    </many-to-one>
+    <property name="Name">
+      <column name="Name" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Budget">
+      <column name="Budget" sql-type="money" not-null="true" />
+    </property>
+    <property name="Startdate">
+      <column name="StartDate" sql-type="datetime" not-null="true" />
+    </property>
+    <property name="Rowversion">
+      <column name="RowVersion" sql-type="timestamp" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

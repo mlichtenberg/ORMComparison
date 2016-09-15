@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ContosoUniversity.NH" namespace="ContosoUniversity.NH.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Course" table="Course" lazy="true" >
+    <id name="Courseid" column="CourseID" />
+    <many-to-one name="Department">
+      <column name="DepartmentID" sql-type="int" not-null="true" />
+    </many-to-one>
+    <property name="Title">
+      <column name="Title" sql-type="nvarchar" not-null="false" />
+    </property>
+    <property name="Credits">
+      <column name="Credits" sql-type="int" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

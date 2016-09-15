@@ -1,0 +1,71 @@
+﻿@model List<ContosoUniversity.Models.Test>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Data Access Library Performance Tests</h2>
+
+@using (Html.BeginForm("Index", "Test", FormMethod.Post))
+{
+    <p>
+        Iterations: @Html.TextBox("Iterations", ViewBag.Iterations as string)
+    </p>
+    <p>
+        <input name="submit" type="submit" value="All" />
+        <input name="submit" type="submit" value="EF" />
+        <input name="submit" type="submit" value="EF-Optimized" />
+        <input name="submit" type="submit" value="DALv1" />
+        <input name="submit" type="submit" value="DALv1-NoSp" />
+        <input name="submit" type="submit" value="NH" />
+        <input name="submit" type="submit" value="FluentNH"
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Iterations
+        </th>
+        <th>
+            Library
+        </th>
+        <th>
+            Operation
+        </th>
+        <th>
+            Start Time
+        </th>
+        <th>
+            End Time
+        </th>
+        <th>
+            Elapsed Time (seconds)
+        </th>
+    </tr>
+
+    @foreach (var test in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(testItem => test.Iterations)
+            </td>
+            <td>
+                @Html.DisplayFor(testItem => test.Library)
+            </td>
+            <td>
+                @Html.DisplayFor(testItem => test.Operation)
+            </td>
+            <td>
+                @Html.DisplayFor(testItem => test.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(testItem => test.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(testItem => test.Elapsed)
+            </td>
+        </tr>
+    }
+
+</table>

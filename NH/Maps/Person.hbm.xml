@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ContosoUniversity.NH" namespace="ContosoUniversity.NH.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Person" table="Person" lazy="true" >
+    <id name="Id" column="ID">
+      <generator class="identity" />
+    </id>
+    <property name="Lastname">
+      <column name="LastName" sql-type="nvarchar" not-null="true" />
+    </property>
+    <property name="Firstname">
+      <column name="FirstName" sql-type="nvarchar" not-null="true" />
+    </property>
+    <property name="Hiredate">
+      <column name="HireDate" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Enrollmentdate">
+      <column name="EnrollmentDate" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Discriminator">
+      <column name="Discriminator" sql-type="nvarchar" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>
